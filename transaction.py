@@ -24,7 +24,7 @@ tx = {
 'gasPrice': web3.toWei('50', 'gwei') #how many gas we send in gwei
 }
 
-#RPi1 Adress signs transaction
+#RPi1 Address signs transaction
 signed_tx = web3.eth.account.signTransaction(tx, private_key)
 
 #want to get the transaction hash (not really necessary) but is a confirmation of transaction
