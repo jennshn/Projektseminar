@@ -4,14 +4,14 @@ from web3 import Web3
 ganache_url = "HTTP://127.0.0.1:7545"
 web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-account_1 = "0x2F74924f033cB4e8Cb44f78B3599CEFF3DaD6477" #RPi 1 Address
-account_2 = "0xF5d4243c6e8262f126a7E24084f0c352bb74982d" #RPi 2 Address
+rpi1_address = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" #RPi 1 Address
+rpi2_address = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" #RPi 2 Address
 
 
 #TO DO: safe private key in python lib
 
 
-private_key = "a3202f3ff16437c9b19eb2ed870b1d3e0f5a2760dc3ebc183e390e73177fc87b" #private key RPi 1
+private_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" #private key RPi 1
 
 nonce= web3.eth.getTransactionCount(account_1)
 
@@ -19,7 +19,7 @@ nonce= web3.eth.getTransactionCount(account_1)
 tx = {
 'nonce': nonce,
 'to': account_2,
-'value': web3.toWei(0.01, 'ether'),
+'value': web3.toWei(0.005 , 'ether'),
 'gas': 21000,
 'gasPrice': web3.toWei('50', 'gwei') #how many gas we send in gwei
 }
@@ -33,13 +33,13 @@ print(web3.toHex(tx_hash))
 
 #get the Balance of RPi1 
 balance_rpi1 = web3.eth.getBalance(account_1)
-conv_balance = web3.fromWei(balance_rpi1, 'ether') #convert to eth and print 
-print(conv_balance)
+conv_balance1 = web3.fromWei(balance_rpi1, 'ether') #convert to eth and print 
+print(conv_balance1)
 
 #get the Balance of RPi2
 balance_rpi2 = web3.eth.getBalance(account_2)
-conv_balance = web3.fromWei(balance_rpi2, 'ether') 
-print(conv_balance)
+conv_balance2 = web3.fromWei(balance_rpi2, 'ether') 
+print(conv_balance2)
 
 
 
@@ -48,7 +48,7 @@ print(conv_balance)
 filter = web3.eth.get_filter_logs({
     'fromBlock': 0,
     'toBlock': 'latest',
-    'address': '0x2F74924f033cB4e8Cb44f78B3599CEFF3DaD6477',
+    'address': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 })
 """
 
