@@ -1,5 +1,4 @@
-from eth_typing.evm import Address
-from influxdb import resultset
+from eth_typing.evm import Address # nicht notwendig 
 from web3 import Web3
 
 ganache_url = "HTTP://127.0.0.1:7545"
@@ -8,11 +7,13 @@ web3 = Web3(Web3.HTTPProvider(ganache_url))
 account_1 = "0x2F74924f033cB4e8Cb44f78B3599CEFF3DaD6477" #RPi 1 Address
 account_2 = "0xF5d4243c6e8262f126a7E24084f0c352bb74982d" #RPi 2 Address
 
+#TO DO: safe private keys in python lib
+
 private_key = "a3202f3ff16437c9b19eb2ed870b1d3e0f5a2760dc3ebc183e390e73177fc87b" #private key RPi 1
 
 nonce= web3.eth.getTransactionCount(account_1)
 
-#transaction
+#Create transaction
 tx = {
 'nonce': nonce,
 'to': account_2,
@@ -21,22 +22,26 @@ tx = {
 'gasPrice': web3.toWei('50', 'gwei') #how many gas we send in gwei
 }
 
-#sign transaction
+#RPi1 Adress signs transaction
 signed_tx = web3.eth.account.signTransaction(tx, private_key)
 
 #want to get the transaction hash (not really necessary) but is a confirmation of transaction
 tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction) 
 print(web3.toHex(tx_hash)) 
 
-#get the Balance of Pi_1 
+#get the Balance of RPi1 
 balance_rpi1 = web3.eth.getBalance(account_1)
 conv_balance = web3.fromWei(balance_rpi1, 'ether') #convert to eth and print 
 print(conv_balance)
 
+#get the Balance of RPi2
 balance_rpi2 = web3.eth.getBalance(account_2)
 conv_balance = web3.fromWei(balance_rpi2, 'ether') 
 print(conv_balance)
 
+
+
+#trying to get Latest Transaction
 """
 filter = web3.eth.get_filter_logs({
     'fromBlock': 0,
