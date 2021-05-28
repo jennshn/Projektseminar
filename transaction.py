@@ -7,7 +7,9 @@ web3 = Web3(Web3.HTTPProvider(ganache_url))
 account_1 = "0x2F74924f033cB4e8Cb44f78B3599CEFF3DaD6477" #RPi 1 Address
 account_2 = "0xF5d4243c6e8262f126a7E24084f0c352bb74982d" #RPi 2 Address
 
-#TO DO: safe private keys in python lib
+
+#TO DO: safe private key in python lib
+
 
 private_key = "a3202f3ff16437c9b19eb2ed870b1d3e0f5a2760dc3ebc183e390e73177fc87b" #private key RPi 1
 
