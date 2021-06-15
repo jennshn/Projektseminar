@@ -1,3 +1,5 @@
+#This code runs on raspberry pi1
+
 import requests
 from web3 import Web3
 
