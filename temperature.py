@@ -1,3 +1,5 @@
+# This code runs on the raspberry pi2
+
 import json
 from flask import Flask, request, redirect
 from flask.helpers import make_response
