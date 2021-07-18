@@ -10,7 +10,7 @@ rpi2_address = "0xD793b7d81B580b66E5934B95fA0cc3965e3c505F" #rpi 1 address
 
 #rpi2__sk = os.environ.get('RPI1__sk')
 
-rpi2__sk = "d446243799ed98867ad7a013a8fb212710a432ab39a2f2186aae495c49cf365e"
+rpi2__sk = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 # Connect web3 to the Infura node (Rinkeby Network)
 infura_url = "https://rinkeby.infura.io/v3/3423f6258c3b46e98459616f589e4300"
