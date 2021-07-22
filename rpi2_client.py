@@ -4,11 +4,11 @@ import os
 
 rpi1_url= "http://132.199.123.229:8030/"
 
-# Acess private key from environment variable in rpi 2
+# Acess private key from environment variable in pi 2
 rpi2_privateKey = os.environ.get('RPI2_PRIVATEKEY')
 rpi2_address = "0xD793b7d81B580b66E5934B95fA0cc3965e3c505F"
 
-# Connect web3 to the Rinkeby Network
+# Connect web3 to the Rinkeby network
 infura_url = "https://rinkeby.infura.io/v3/3423f6258c3b46e98459616f589e4300"
 web3 = Web3(Web3.HTTPProvider(infura_url))
 
@@ -19,14 +19,14 @@ gasValue = web3.fromWei(gas, 'ether')
 # Get the current balance of the passed address
 def getBalance(address):
     balance = web3.eth.getBalance(address)
-    convertedBalance = web3.fromWei(balance, 'ether') # ether 18 decimals convert balance
+    convertedBalance = web3.fromWei(balance, 'ether')
     return convertedBalance
 
 
 # Method to verify the balance
 def verifyBalance(rpi1_address, rpi2_address, tokenAmount):
     currentBalance = getBalance(rpi2_address)
-    if(float(currentBalance) < (float(tokenAmount) + float(gasValue))): #gas müsste jz nochmal konvertiert werden da er 51000 max ist
+    if(float(currentBalance) < (float(tokenAmount) + float(gasValue))):
         return "Not enough tokens for transaction. Please buy more token."
     else:
         # If enough token are available create a transaction
@@ -47,8 +47,8 @@ def createTx(rpi1_address, tokenAmount, rpi2_address):
     return tx
 
 # Sign the created transaction with a private key
-def signTransaction(tx, _sk):
-    signedTx = web3.eth.account.signTransaction(tx, _sk) #why only _sk
+def signTransaction(tx, privateKey):
+    signedTx = web3.eth.account.signTransaction(tx, privateKey)
     return signedTx
 
 # Method sends the signed transaction
