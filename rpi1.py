@@ -10,9 +10,9 @@ import os
 app = Flask(__name__)
 api = Api(app)
 
-# Access data to the database
-user = os.environ.get('RPI2_USER') #CHANGE TO DB_USER AND DB_PASSWORD
-password = os.environ.get('RPI2_PASSWORD')
+# Access data of the database
+user = os.environ.get('DB_USER')
+password = os.environ.get('DB_PASSWORD')
 
 # Connect web3 to the Rinkeby Network
 infura_url = "https://rinkeby.infura.io/v3/3423f6258c3b46e98459616f589e4300"
