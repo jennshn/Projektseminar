@@ -141,7 +141,7 @@ class SensorData(Resource):
         global key
         global rpi1_balance
 
-        # Set a timer for 15-20 seconds to make sure that the token are in the wallet and balance is updated
+        # Set a timer for 15-20 seconds to make sure that the tokens are in the wallet
         sleep(20)
 
         currentBalance = getBalance(rpi1_address)
